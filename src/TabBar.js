@@ -46,12 +46,12 @@ class TabBarIcon extends Component {
 
     return (
       <View name={name} style={tabContainerStyle()}>
-        {tabItem.icon &&
+        {React.isValidElement(tabItem.icon) ? tabItem.icon : (
           <Image
             source={tabItem.icon}
             style={imageStyle(this.props)}
             />
-        }
+        )}
         {tabItem.title &&
           <Text style={textStyle(this.props)}>{tabItem.title}</Text>
         }
